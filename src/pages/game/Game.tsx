@@ -1,4 +1,4 @@
-import { Matrix } from "./components/matrix/Matrix";
+import {Matrix} from "./components/matrix/Matrix";
 import "./game.css";
 
 const Game = () => {
@@ -9,4 +9,4 @@ const Game = () => {
   );
 };
 
-export { Game };
+export {Game};

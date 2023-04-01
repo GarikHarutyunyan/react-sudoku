@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import React, { ReactNode, memo, useCallback } from "react";
+import React, {memo, useCallback} from "react";
 import "./cell.css";
-import { ICoordinate } from "../../../../data-structures";
+import {ICoordinate} from "../../../../data-structures";
 
 interface ICellProps {
   x: number;
@@ -13,11 +13,11 @@ interface ICellProps {
 }
 
 const Cell = memo((props: ICellProps): JSX.Element => {
-  const { x, y, isActive, onActiveCellChange, style, className } = props;
+  const {x, y, isActive, onActiveCellChange, style, className} = props;
 
   const onClick = useCallback(() => {
-    onActiveCellChange && onActiveCellChange({ x, y });
-  }, [onActiveCellChange]);
+    onActiveCellChange && onActiveCellChange({x, y});
+  }, [onActiveCellChange, x, y]);
 
   return (
     <div
@@ -32,4 +32,4 @@ const Cell = memo((props: ICellProps): JSX.Element => {
   );
 });
 
-export { Cell };
+export {Cell};
