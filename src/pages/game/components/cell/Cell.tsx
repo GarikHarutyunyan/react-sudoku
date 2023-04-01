@@ -1,20 +1,27 @@
 import classNames from "classnames";
-import React, { ReactNode } from "react";
+import React, { ReactNode, memo, useCallback } from "react";
 import "./cell.css";
+import { ICoordinate } from "../../../../data-structures";
 
 interface ICellProps {
   x: number;
   y: number;
   isActive?: boolean;
+  onActiveCellChange?: (coordinate: ICoordinate) => void;
   style?: React.CSSProperties;
   className?: string;
 }
 
-const Cell = (props: ICellProps): JSX.Element => {
-  const { x, y, isActive, style, className } = props;
+const Cell = memo((props: ICellProps): JSX.Element => {
+  const { x, y, isActive, onActiveCellChange, style, className } = props;
+
+  const onClick = useCallback(() => {
+    onActiveCellChange && onActiveCellChange({ x, y });
+  }, [onActiveCellChange]);
 
   return (
     <div
+      onClick={onClick}
       style={style}
       className={classNames(className, "cell", {
         cell_active: isActive,
@@ -23,6 +30,6 @@ const Cell = (props: ICellProps): JSX.Element => {
       })}
     ></div>
   );
-};
+});
 
 export { Cell };
