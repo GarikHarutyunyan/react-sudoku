@@ -1,3 +1,7 @@
+## Try it
+
+[https://garikharutyunyan.github.io/react-sudoku/](https://garikharutyunyan.github.io/react-sudoku/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
