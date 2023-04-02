@@ -1,7 +1,6 @@
 import {Level} from './pages/level';
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Levels} from './pages/levels';
-import {basename} from 'path';
 
 const App = () => {
   const router = createHashRouter(
@@ -15,7 +14,7 @@ const App = () => {
         element: <Level />,
       },
     ],
-    {basename: '/react-sudoku'}
+    {basename: '/'}
   );
 
   return (
