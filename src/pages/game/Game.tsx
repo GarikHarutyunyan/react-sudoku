@@ -9,7 +9,7 @@ const Game = () => {
   const dispatch = useDispatch<any>();
 
   useEffect(() => {
-    dispatch(getLevel('b'));
+    dispatch(getLevel('a'));
   }, []);
 
   return (
