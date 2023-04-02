@@ -1,0 +1,20 @@
+.number-board {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 22px;
+}
+
+.number-board__element {
+    height: 70px;
+    width: 70px;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 34px;
+    cursor: pointer;
+}
