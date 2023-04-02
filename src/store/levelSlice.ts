@@ -7,6 +7,7 @@ import {
 } from '@reduxjs/toolkit';
 import {RootState} from './store';
 import {ICoordinate, ILevel, RequestStatus} from '../data-structures';
+import {GameUtils, MatrixUtils} from '../utils';
 
 const levelsAdapter = createEntityAdapter<ILevel>();
 
@@ -14,8 +15,10 @@ export interface ILevelState {
   level: {
     entity: ILevel | null;
     status: RequestStatus;
+    isSolved: boolean;
     activeCoordinate: ICoordinate | null;
     immutableCoordinates: ICoordinate[];
+    emptyCoordinatesCount: number;
   };
   levels: {
     ids: EntityId[];
@@ -28,8 +31,10 @@ const initialState: ILevelState = {
   level: {
     entity: null,
     status: RequestStatus.IDLE,
+    isSolved: false,
     activeCoordinate: null,
     immutableCoordinates: [],
+    emptyCoordinatesCount: 81,
   },
   levels: {ids: [], entities: {}, status: RequestStatus.IDLE},
 };
@@ -73,7 +78,28 @@ export const levelSlice = createSlice({
     changeActiveCoordinateValue: (state: ILevelState, action) => {
       const coordinate = state.level.activeCoordinate;
       if (state.level.entity && coordinate) {
+        const oldValueWasEmpty: boolean =
+          state.level.entity.matrix[coordinate.y][coordinate.x] === 0;
+
         state.level.entity.matrix[coordinate.y][coordinate.x] = action.payload;
+
+        if (oldValueWasEmpty) {
+          state.level.emptyCoordinatesCount--;
+        }
+
+        const allCoordinatesAreFilled: boolean =
+          state.level.emptyCoordinatesCount === 0;
+
+        if (allCoordinatesAreFilled) {
+          const gameIsSolved: boolean = GameUtils.checkSolution(
+            state.level.entity.matrix
+          );
+          console.log(gameIsSolved);
+
+          if (gameIsSolved) {
+            state.level.isSolved = true;
+          }
+        }
       }
     },
   },
@@ -97,25 +123,16 @@ export const levelSlice = createSlice({
       .addCase(getLevel.fulfilled, (state, action) => {
         state.levels.status = RequestStatus.SUCCEEDED;
         state.level.entity = action.payload || null;
-        state.level.immutableCoordinates =
-          action.payload?.matrix.reduce(
-            (matrixCoordinates: ICoordinate[], row: number[], y: number) => {
-              const coordinates: ICoordinate[] = row.reduce(
-                (rowCoordinates: ICoordinate[], cell: number, x: number) => {
-                  if (cell) {
-                    return [...rowCoordinates, {x, y}];
-                  }
-                  return rowCoordinates;
-                },
-                []
-              );
+        if (action.payload) {
+          state.level.immutableCoordinates = MatrixUtils.getFilledCoordinates(
+            action.payload.matrix
+          );
 
-              return [...matrixCoordinates, ...coordinates];
-            },
-            []
-          ) || [];
+          state.level.emptyCoordinatesCount =
+            81 - state.level.immutableCoordinates.length;
 
-        action.payload && levelsAdapter.setOne(state.levels, action.payload);
+          levelsAdapter.setOne(state.levels, action.payload);
+        }
       })
       .addCase(getLevel.rejected, (state) => {
         state.levels.status = RequestStatus.FAILED;
@@ -144,6 +161,9 @@ export const checkMutability =
   (coordinate: ICoordinate) =>
   (state: RootState): boolean =>
     !includesCoordinate(state.level.level.immutableCoordinates, coordinate);
+
+export const checkIsSolved = (state: RootState): boolean =>
+  state.level.level.isSolved;
 
 export const {changeActiveCoordinate, changeActiveCoordinateValue} =
   levelSlice.actions;
