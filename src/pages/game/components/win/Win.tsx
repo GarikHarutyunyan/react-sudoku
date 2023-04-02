@@ -1,5 +1,5 @@
 const Win = () => {
-  return <div>{'Congratulations!!!'}</div>;
+  return <h1>{'Congratulations!!!'}</h1>;
 };
 
 export {Win};

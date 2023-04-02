@@ -16,8 +16,14 @@ const Game = () => {
 
   return (
     <div className={'game'}>
-      {isSolved ? <Win /> : <Matrix />}
-      <NumberBoard />
+      {isSolved ? (
+        <Win />
+      ) : (
+        <>
+          <Matrix />
+          <NumberBoard />
+        </>
+      )}
     </div>
   );
 };
