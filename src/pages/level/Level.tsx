@@ -6,6 +6,7 @@ import {checkIsSolved, getLevel} from '../../store/levelSlice';
 import {NumberBoard} from './components/number-board/NumberBoard';
 import {Win} from './components/win/Win';
 import {Link, useParams} from 'react-router-dom';
+import {Actions} from './components/actions/Actions';
 
 const Level = () => {
   const dispatch = useDispatch<any>();
@@ -27,6 +28,7 @@ const Level = () => {
         <>
           <Matrix />
           <NumberBoard />
+          <Actions />
         </>
       )}
     </div>
