@@ -66,7 +66,7 @@ export const levelSlice = createSlice({
   initialState,
   reducers: {
     changeActiveCoordinate: (state: ILevelState, action) => {
-      const coordinate = action.payload;
+      const coordinate: ICoordinate = action.payload;
       const isCoordinateMutable = !includesCoordinate(
         state.level.immutableCoordinates,
         coordinate
@@ -94,7 +94,6 @@ export const levelSlice = createSlice({
           const gameIsSolved: boolean = GameUtils.checkSolution(
             state.level.entity.matrix
           );
-          console.log(gameIsSolved);
 
           if (gameIsSolved) {
             state.level.isSolved = true;

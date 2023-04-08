@@ -24,7 +24,7 @@ const Matrix = (): JSX.Element => {
       {matrix.map((row, y) => {
         return (
           <div key={y} className={'matrix__row'}>
-            {row.map((_cell: unknown, x: number) => {
+            {row.map((_cell: number, x: number) => {
               const isCellActive: boolean =
                 !!activeCell && activeCell.x === x && activeCell.y === y;
 
