@@ -1,0 +1,8 @@
+.actions__button {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px;
+    font-size: 25px;
+    margin: 20px;
+    cursor: pointer;
+}
