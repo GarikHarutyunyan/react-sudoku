@@ -6,6 +6,8 @@
 
 This project doesn't include state management part itself, because the same state management is also used from mobile application of this app ([https://garikharutyunyan.github.io/react-native-sudoku/](https://garikharutyunyan.github.io/react-native-sudoku/).)
 
+You need to clone redux-sudoku repository to coresponding directory to be able to use it.
+
 ```bash
 cd src
 ```
