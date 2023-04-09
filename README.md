@@ -4,7 +4,7 @@
 
 # Getting started
 
-This project doesn't include state management part itself, because the same state management is also used from mobile application of this app ([https://github.com/GarikHarutyunyan/react-native-sudoku/](https://github.com/GarikHarutyunyan/react-native-sudoku)).
+This project doesn't include state management part itself, because the same state management is also used from mobile version of this app ([https://github.com/GarikHarutyunyan/react-native-sudoku/](https://github.com/GarikHarutyunyan/react-native-sudoku)).
 
 You need to clone redux-sudoku repository to coresponding directory to be able to use it.
 
