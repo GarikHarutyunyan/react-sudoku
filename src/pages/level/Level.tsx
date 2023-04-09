@@ -24,7 +24,7 @@ const Level = () => {
 
   useEffect(() => {
     dispatch(getLevel(id as string));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (isSolved) {
