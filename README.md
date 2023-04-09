@@ -2,6 +2,18 @@
 
 [https://garikharutyunyan.github.io/react-sudoku/](https://garikharutyunyan.github.io/react-sudoku/).
 
+## Getting started
+
+This project doesn't include state management part itself, because the same state management is also used from mobile application of this app ([https://garikharutyunyan.github.io/react-native-sudoku/](https://garikharutyunyan.github.io/react-native-sudoku/).)
+
+```bash
+cd src
+```
+
+```bash
+git clone https://github.com/GarikHarutyunyan/redux-sudoku.git
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
