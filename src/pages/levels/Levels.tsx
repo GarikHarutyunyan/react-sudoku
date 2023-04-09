@@ -17,12 +17,15 @@ const Levels = (): JSX.Element => {
 
   return (
     <>
+      <h3>
+        <Link to={'/'}>{'Back'}</Link>
+      </h3>
       {levels.map((level: ILevel) => {
         const isLevelAvailable: boolean = lastAvailableLevel < level.index;
         return (
           <h2 key={level.id}>
             <Link
-              to={`/level/${level.id}`}
+              to={`/levels/${level.id}`}
               onClick={
                 isLevelAvailable ? (event) => event.preventDefault() : undefined
               }

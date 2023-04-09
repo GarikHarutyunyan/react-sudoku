@@ -36,7 +36,7 @@ const Level = () => {
     return (
       <>
         <h3>
-          <Link to={'/'}>{'Back'}</Link>
+          <Link to={'/levels'}>{'Back'}</Link>
         </h3>
         <h2>{'This level is unavailable for you!'}</h2>
       </>
@@ -46,7 +46,7 @@ const Level = () => {
   return (
     <div className={'level'}>
       <h3>
-        <Link to={'/'}>{'Back'}</Link>
+        <Link to={'/levels'}>{'Back'}</Link>
       </h3>
       {isSolved ? (
         <Win />
