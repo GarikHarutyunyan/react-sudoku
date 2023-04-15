@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-sudoku/static/css/main.eebfe91b.css",
-    "main.js": "/react-sudoku/static/js/main.9ac50be1.js",
-    "static/js/305.61c3310d.chunk.js": "/react-sudoku/static/js/305.61c3310d.chunk.js",
+    "main.css": "/react-sudoku/static/css/main.00532035.css",
+    "main.js": "/react-sudoku/static/js/main.594ef6a2.js",
+    "static/js/305.4b0eac0e.chunk.js": "/react-sudoku/static/js/305.4b0eac0e.chunk.js",
     "static/js/787.6c94a8ac.chunk.js": "/react-sudoku/static/js/787.6c94a8ac.chunk.js",
     "index.html": "/react-sudoku/index.html",
-    "main.eebfe91b.css.map": "/react-sudoku/static/css/main.eebfe91b.css.map",
-    "main.9ac50be1.js.map": "/react-sudoku/static/js/main.9ac50be1.js.map",
-    "305.61c3310d.chunk.js.map": "/react-sudoku/static/js/305.61c3310d.chunk.js.map",
+    "main.00532035.css.map": "/react-sudoku/static/css/main.00532035.css.map",
+    "main.594ef6a2.js.map": "/react-sudoku/static/js/main.594ef6a2.js.map",
+    "305.4b0eac0e.chunk.js.map": "/react-sudoku/static/js/305.4b0eac0e.chunk.js.map",
     "787.6c94a8ac.chunk.js.map": "/react-sudoku/static/js/787.6c94a8ac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eebfe91b.css",
-    "static/js/main.9ac50be1.js"
+    "static/css/main.00532035.css",
+    "static/js/main.594ef6a2.js"
   ]
 }
